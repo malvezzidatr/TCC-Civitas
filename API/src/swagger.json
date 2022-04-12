@@ -1,0 +1,110 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "API - Civitas",
+        "description": "Essa API tem como objetivo o cadastro de usuário, cadastro de projetos, entre outras.",
+        "contact": {
+            "email": "caiomalvezzi101@gmail.com"
+        },
+        "version": "1.0.0"
+    },
+    "host": "civitas/api-docs",
+    "basepath": "#",
+    "tags": [
+        {
+            "name": "users",
+            "description": "Operações com usuários"
+        },
+        {
+            "name": "projetos",
+            "description": "Operações com projetos"
+        }
+    ],
+    "schemes": [
+        "https",
+        "http"
+    ],
+    "paths": {
+        "/users/{id}": {
+            "get": {
+                "tags": [
+                    "users"
+                ],
+                "summary": "Busca usuário por ID",
+                "operationId": "findUserById",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "schema": {
+                            "type": "string",
+                            "format": "uuid"
+                        },
+                        "description": "ID do usuário do tipo uuid V4",
+                        "required": true
+                    }
+                ],
+                "requestParams": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "items": {
+                                    "id": "f8f8ddcd-aa35-4dda-b8b0-9f26c9b8151f"
+                                }
+                            }    
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Usuário encontrado",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "items": {
+                                        "type": "object",
+                                        "$ref": "#/components/schemas/User"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Usuário não encontrado"
+                    },
+                    "500": {
+                        "description": "Erro de servidor"
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "User": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "example": "Caio Vinícius Malvezzi"
+                    },
+                    "age": {
+                        "type": "number",
+                        "exemple": 12
+                    },
+                    "id": {
+                        "type": "string",
+                        "example": "f8f8ddcd-aa35-4dda-b8b0-9f26c9b8151f"
+                    },
+                    "created_at": {
+                        "type": "date",
+                        "exemple": "2022-04-12T16:19:31.558Z"
+                    }
+                }
+            }
+        }
+    }
+}
