@@ -1,50 +1,31 @@
 import { Router, Request, Response } from "express";
-import { v4 as uuidV4 } from "uuid";
 
-import { User } from "../model/User";
-
-interface ICreateUser {
-    name: string;
-    age: number;
-    id: string;
-    created_at: Date;
-}
+import { UserRepository } from "../repositories/UserRepository";
 
 const userRoutes = Router();
+const userRepository = new UserRepository();
 
 userRoutes.post("/", async (req: Request, res: Response) => {
-    const { name, age } = req.body;
-    const user: ICreateUser = {
-        name,
-        age,
-        id: uuidV4(),
-        created_at: new Date(),
-    };
-    try {
-        await User.create(user);
-        return res.status(201).send(user);
-    } catch (err) {
-        return res.status(500).json({ error: "Error" });
-    }
+    const { name, description } = req.body;
+    await userRepository.createUser(name, description);
+    return res.status(201).send();
 });
 
 userRoutes.get("/:id", async (req: Request, res: Response) => {
     const { id } = req.params;
-    await User.findOne({ id }).then((user) => {
-        if (!user) {
-            return res.status(400).json({ error: "Usuário não cadastrado" });
-        }
-        return res.send(user);
-    });
+    const user = await userRepository.findUserById(id);
+    return res.send(user);
 });
 
 userRoutes.get("/", async (req: Request, res: Response) => {
-    await User.find().then((user) => {
-        if (!user) {
-            return res.status(400).json({ error: "Nenhum usuário" });
-        }
-        return res.send(user);
-    });
+    const allUsers = await userRepository.getAllUsers();
+    return res.send(allUsers);
+});
+
+userRoutes.delete("/delete/:id", async (req: Request, res: Response) => {
+    const { id } = req.params;
+    await userRepository.deleteUserById(id);
+    return res.status(204).send();
 });
 
 export { userRoutes };

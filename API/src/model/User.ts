@@ -1,12 +1,32 @@
 import { Schema, model } from "mongoose";
 
-const UserSchema = new Schema({
-    name: { type: String, required: true },
-    age: { type: Number, required: true },
-    id: { type: String, required: true },
-    created_at: { type: Date, required: true },
+interface IUser {
+    name: string;
+    description: string;
+    id?: string;
+    created_at: Date;
+}
+
+const UserSchema: Schema = new Schema({
+    name: {
+        type: String,
+        required: true,
+    },
+    description: {
+        type: String,
+        required: true,
+    },
+    id: {
+        type: String,
+        required: true,
+        unique: true,
+    },
+    created_at: {
+        type: Date,
+        required: true,
+    },
 });
 
-const User = model("User", UserSchema);
+const User = model<IUser>("User", UserSchema);
 
-export { User };
+export { User, IUser };
