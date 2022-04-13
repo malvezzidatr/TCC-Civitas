@@ -10,7 +10,7 @@ const userRepository = new UserRepository();
 projectRoutes.post("/", async (req: Request, res: Response) => {
     const { name, description } = req.body;
     const { id } = req.params;
-    const userExists = userRepository.findUserById(id);
+    const userExists = await userRepository.findUserById(id);
     if (userExists) {
         const project: IProject = {
             name,
