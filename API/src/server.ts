@@ -3,6 +3,7 @@ import express from "express";
 import mongoose from "mongoose";
 import swaggerUI from "swagger-ui-express";
 
+import { projectRoutes } from "./routes/project.routes";
 import { userRoutes } from "./routes/user.routes";
 import swaggerDocs from "./swagger.json";
 
@@ -11,6 +12,7 @@ const app = express();
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use("/users", userRoutes);
+app.use("/:id/projects", projectRoutes);
 app.use("/api-docs", swaggerUI.serve, swaggerUI.setup(swaggerDocs));
 
 mongoose
