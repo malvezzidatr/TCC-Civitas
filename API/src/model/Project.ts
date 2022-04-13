@@ -1,13 +1,13 @@
 import { Schema, model } from "mongoose";
 
-interface IUser {
+interface IProject {
     name: string;
     description: string;
     id?: string;
     created_at: Date;
 }
 
-const UserSchema: Schema = new Schema({
+const ProjectSchema: Schema = new Schema({
     name: {
         type: String,
         required: true,
@@ -27,6 +27,6 @@ const UserSchema: Schema = new Schema({
     },
 });
 
-const User = model<IUser>("User", UserSchema);
+const Project = model<IProject>("Project", ProjectSchema);
 
-export { User, IUser };
+export { Project, IProject };
