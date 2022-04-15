@@ -1,16 +1,37 @@
+import JWT from "jsonwebtoken";
 import { v4 as uuidV4 } from "uuid";
 
 import { IUser, User } from "../model/User";
 
 class UserRepository {
-    async createUser(name: string, description: string): Promise<void> {
+    async createUser({ name, email, password }: IUser): Promise<void> {
         const user = {
             name,
-            description,
+            email,
+            password,
             id: uuidV4(),
             created_at: new Date(),
         };
         await User.create(user);
+    }
+
+    generateJWT(secret: string, user: IUser) {
+        try {
+            const token = JWT.sign(
+                {
+                    id: user.id,
+                },
+                secret
+            );
+            return token;
+        } catch (error) {
+            return false;
+        }
+    }
+
+    async findUserByEmail(email: string): Promise<IUser> {
+        const userExists = await User.findOne({ email });
+        return userExists;
     }
 
     async findUserById(id: string): Promise<IUser> {
