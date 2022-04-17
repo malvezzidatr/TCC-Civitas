@@ -27,7 +27,7 @@ async function checkPassword(req: Request, res: Response, next: NextFunction) {
 }
 
 function checkJWTToken(req: Request, res: Response, next: NextFunction) {
-    const authHeader = req.headers.authorizations;
+    const authHeader = <string>req.headers.authorizations;
     const JWTtoken = authHeader && authHeader.split(" ")[1];
     if (!JWTtoken) {
         return res.status(401).json({ error: "Acesso negado!" });
