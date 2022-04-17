@@ -1,9 +1,11 @@
-import Button from './components/button';
+import React from 'react';
+import Routes from './routes';
+import Hello from './screens/Hello';
 
 function App() {
   return (
     <div className="App">
-      <Button name='caio malvezzi'/>
+      <Routes />
     </div>
   );
 }

@@ -1,8 +1,8 @@
 import React from 'react';
 
-function Button({ name }) {
+const Button = ({ name }) => {
     return (
-        <p>{ name }</p>
+        <p>{name}</p>
     )
 }
 
