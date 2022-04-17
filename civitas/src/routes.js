@@ -1,7 +1,7 @@
 import React from "react";
 import { Route, BrowserRouter } from "react-router-dom";
 
-import Hello from "./screens/Hello.js";
+import Hello from "./pages/Hello.js";
 
 const Routes = () => {
     return (
