@@ -1,13 +1,13 @@
-import React from 'react';
-import Routes from './routes';
-import Hello from './screens/Hello';
+import React from "react";
+
+import Routes from "./routes.js";
 
 function App() {
-  return (
-    <div className="App">
-      <Routes />
-    </div>
-  );
+    return (
+        <div className="App">
+            <Routes />
+        </div>
+    );
 }
 
 export default App;
