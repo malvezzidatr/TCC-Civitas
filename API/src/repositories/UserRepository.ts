@@ -2,9 +2,14 @@ import JWT from "jsonwebtoken";
 import { v4 as uuidV4 } from "uuid";
 
 import { IUser, User } from "../model/User";
+import { IUserRepository } from "./IUserRepository";
 
-class UserRepository {
-    async createUser({ name, email, password }: IUser): Promise<void> {
+class UserRepository implements IUserRepository {
+    async createUser(
+        name: string,
+        email: string,
+        password: string
+    ): Promise<void> {
         const user = {
             name,
             email,
