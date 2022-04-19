@@ -1,7 +1,7 @@
 import bcrypt from "bcrypt";
 
+import { IUserRepository } from "../Interfaces/IUserRepository";
 import { IUser } from "../model/User";
-import { IUserRepository } from "../repositories/IUserRepository";
 
 interface IRequest {
     name: string;

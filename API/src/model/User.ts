@@ -1,11 +1,14 @@
 import { Schema, model } from "mongoose";
 
+import { IProject } from "./Project";
+
 interface IUser {
     name: string;
     email: string;
     password: string;
     id?: string;
     created_at?: Date;
+    projects: Array<IProject>;
 }
 
 const UserSchema: Schema = new Schema({
@@ -29,6 +32,10 @@ const UserSchema: Schema = new Schema({
     created_at: {
         type: Date,
         required: true,
+    },
+    projects: {
+        type: Array,
+        required: false,
     },
 });
 

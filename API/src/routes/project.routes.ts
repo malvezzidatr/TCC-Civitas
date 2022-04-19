@@ -1,29 +1,38 @@
 import { Router, Request, Response } from "express";
-import { v4 as uuidV4 } from "uuid";
 
-import { IProject, Project } from "../model/Project";
+import { ProjectRepository } from "../repositories/ProjectRepository";
 import { UserRepository } from "../repositories/UserRepository";
+import { ProjectService } from "../services/ProjectService";
+import { UserService } from "../services/UserService";
 
 const projectRoutes = Router();
+const projectRepository = new ProjectRepository();
+const projectService = new ProjectService(projectRepository);
 const userRepository = new UserRepository();
+const userService = new UserService(userRepository);
 
-projectRoutes.post("/", async (req: Request, res: Response) => {
+projectRoutes.patch("/:id", async (req: Request, res: Response) => {
     const { name, description } = req.body;
     const { id } = req.params;
-    const userExists = await userRepository.findUserById(id);
-    if (userExists) {
-        const project: IProject = {
-            name,
-            description,
-            id: uuidV4(),
-            created_at: new Date(),
-        };
-        Project.create(project);
-        return res.status(201).send(project);
+    const user = await userService.findUserById(id);
+    if (!user) {
+        return res.status(404).json({ error: "Usuário não existe" });
     }
-    return res
-        .status(400)
-        .json({ error: "Usuários deslogados não podem criar projetos" });
+    await projectService.createProject(name, description, user);
+    return res.status(201).send();
+});
+
+projectRoutes.get("/", async (req, res) => {
+    const allProjects = await projectService.listAllProject();
+    return res.send(allProjects);
+});
+
+projectRoutes.delete("/delete/:id", async (req, res) => {
+    const { id } = req.params;
+    await projectService.deleteProject(id);
+
+    // await projectService.deleteProject(id);
+    return res.status(204).send();
 });
 
 export { projectRoutes };
