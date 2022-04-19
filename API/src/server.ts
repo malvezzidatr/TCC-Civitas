@@ -14,7 +14,7 @@ app.use(cors());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use("/users", userRoutes);
-app.use("/:id/projects", projectRoutes);
+app.use("/projects", projectRoutes);
 app.use("/api-docs", swaggerUI.serve, swaggerUI.setup(swaggerDocs));
 
 mongoose

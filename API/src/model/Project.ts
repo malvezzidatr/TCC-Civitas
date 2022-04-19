@@ -4,6 +4,7 @@ interface IProject {
     name: string;
     description: string;
     id?: string;
+    user_id: string;
     created_at: Date;
 }
 
@@ -23,6 +24,10 @@ const ProjectSchema: Schema = new Schema({
     },
     created_at: {
         type: Date,
+        required: true,
+    },
+    user_id: {
+        type: String,
         required: true,
     },
 });

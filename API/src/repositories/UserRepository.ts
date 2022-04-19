@@ -1,8 +1,8 @@
 import JWT from "jsonwebtoken";
 import { v4 as uuidV4 } from "uuid";
 
+import { IUserRepository } from "../Interfaces/IUserRepository";
 import { IUser, User } from "../model/User";
-import { IUserRepository } from "./IUserRepository";
 
 class UserRepository implements IUserRepository {
     async createUser(
@@ -16,6 +16,7 @@ class UserRepository implements IUserRepository {
             password,
             id: uuidV4(),
             created_at: new Date(),
+            projects: [],
         };
         await User.create(user);
     }
@@ -35,17 +36,17 @@ class UserRepository implements IUserRepository {
     }
 
     async findUserByEmail(email: string): Promise<IUser> {
-        const userExists = await User.findOne({ email });
+        const userExists = await User.findOne({ email }, "-password");
         return userExists;
     }
 
     async findUserById(id: string): Promise<IUser> {
-        const userById = await User.findOne({ id });
+        const userById = await User.findOne({ id }, "-password");
         return userById;
     }
 
     async getAllUsers(): Promise<IUser[]> {
-        const users = User.find();
+        const users = User.find({}, "-password");
         return users;
     }
 
