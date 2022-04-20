@@ -1,0 +1,21 @@
+.inputLogin {
+    border: none;
+    border-bottom: 3px solid #FF8C3F;
+    outline: none;
+    margin-bottom: 50px;
+    width: 320px;
+    padding: 14px 0 4px 0;
+    font-size: 18px;
+}
+
+.inputLogin::placeholder {
+    font-weight: bold;
+    color: #AEAEAE;
+}
+
+@media(max-width: 500px) {
+    .inputLogin {
+        width: 248px;
+        font-size: 14px;
+    }
+}

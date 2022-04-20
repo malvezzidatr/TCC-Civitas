@@ -1,12 +1,12 @@
 import React from "react";
 import { Route, BrowserRouter } from "react-router-dom";
 
-import Hello from "./pages/Hello.js";
+import Login from "./pages/Login/Login.js";
 
 const Routes = () => {
     return (
         <BrowserRouter>
-            <Route component={Hello} path="/hello" exact />
+            <Route component={Login} path="/" exact />
         </BrowserRouter>
     );
 };
