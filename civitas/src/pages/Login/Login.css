@@ -1,0 +1,58 @@
+.background {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #FF8C3F;
+    width: 100vw;
+    height: 100vh;
+}
+
+.logo {
+    position: absolute;
+    top: 10px;
+    left: 54px;
+}
+
+.globalContainerLogin {
+    width: 45em;
+    height: 61em;
+    background-color: white;
+    align-items: center;
+    justify-content: space-around;
+    display: flex;
+    flex-direction: column;
+    border-radius: 2em;
+}
+
+@media (max-width: 500px) {
+    .globalContainerLogin {
+        width: 35em;
+        height: 57em;
+    }
+}
+
+.loginTitle {
+    font-size: 2.6em;
+}
+
+.inputContainer {
+    display: flex;
+    flex-direction: column;
+}
+
+.buttonContainer {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding-bottom: 100px;
+}
+
+.buttonContainer a {
+    color: #FF8C3F;
+    font-size: 18px;
+    text-decoration: none;
+}
+
+.buttonContainer a:hover {
+    text-decoration: underline;
+}
