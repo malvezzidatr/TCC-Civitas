@@ -1,14 +1,14 @@
 .button {
-    width: 320px;
-    height: 84px;
+    width: 32rem;
+    height: 8.4rem;
     background-color: #fff;
     border: 3px solid #FF8C3F;
     border-radius: 10px;
-    font-size: 3.2em;
+    font-size: 3.2rem;
     color: #FF8C3F;
     transition: .25s;
     cursor: pointer;
-    margin-bottom: 14px;
+    margin-bottom: 1.4rem;
 }
 
 .button:hover {
