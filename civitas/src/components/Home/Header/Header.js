@@ -13,7 +13,7 @@ const Header = () => {
 
       <div className='header__links'>
         <Link name={'Cadastrar'} />
-        <Button name={'Login'} />
+        <Button name={'Login'} link={'/login'} />
       </div>
     </div>
   )

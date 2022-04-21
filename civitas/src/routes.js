@@ -7,8 +7,8 @@ import Login from "./pages/Login/Login.js";
 const Routes = () => {
     return (
         <BrowserRouter>
-            <Route component={Home} path="/home" exact />
-            <Route component={Login} path="/" exact />
+            <Route component={Home} path="/" exact />
+            <Route component={Login} path="/login" exact />
         </BrowserRouter>
     );
 };
