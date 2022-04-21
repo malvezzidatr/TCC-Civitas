@@ -2,10 +2,10 @@
     border: none;
     border-bottom: 3px solid #FF8C3F;
     outline: none;
-    margin-bottom: 50px;
-    width: 320px;
-    padding: 14px 0 4px 0;
-    font-size: 18px;
+    margin-bottom: 5rem;
+    width: 32rem;
+    padding: 1.4rem 0 .4rem 0;
+    font-size: 1.8rem;
 }
 
 .inputLogin::placeholder {
@@ -15,7 +15,7 @@
 
 @media(max-width: 500px) {
     .inputLogin {
-        width: 248px;
-        font-size: 14px;
+        width: 24.8rem;
+        font-size: 1.4rem;
     }
 }
