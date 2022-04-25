@@ -3,7 +3,7 @@ import axios from "axios";
 
 import Button from '../../components/Login/Button/Button.js';
 import Input from '../../components/Login/Input/Input.js';
-import Logo from '../../assets/img/LogoTCC.svg'
+import Logo from '../../assets/img/logo-branco.svg'
 
 import './Login.css';
 

@@ -1,0 +1,21 @@
+.section {
+  margin-bottom: 10rem;
+}
+
+.section__title {
+  margin-bottom: 8rem;
+
+  font-size: 4.8rem;
+  font-weight: 400;
+  line-height: 4.8rem;
+}
+
+.section__title--highlight {
+  font-weight: 700;
+}
+
+.section__grid {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  gap: auto auto;
+}

@@ -8,14 +8,14 @@ import './Header.css'
 
 const Header = () => {
   return (
-    <div className='header'>
+    <header className='header'>
       <img src={Logo} alt='Logo Civitas' className='header__logo'></img>
 
       <div className='header__links'>
         <Link name={'Cadastrar'} />
         <Button name={'Login'} link={'/login'} />
       </div>
-    </div>
+    </header>
   )
 }
 
