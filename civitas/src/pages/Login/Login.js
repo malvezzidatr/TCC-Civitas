@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import axios from "axios";
 
 import Button from '../../components/Login/Button/Button.js';
-import Input from '../../components/Login/Input/Input.js';
+import Input from '../../components/commum/Input/Input.js';
 import Logo from '../../assets/img/logo-branco.svg'
 
 import './Login.css';
@@ -59,7 +59,7 @@ const Login = (props) => {
                 </div>
                 <div className='buttonContainer'>
                     <Button onClick={login} text={'Login'} />
-                    <a href='/cadastrar'>Ainda não tenho conta</a>
+                    <a href='/register'>Ainda não tenho conta</a>
                 </div>
             </div>
         </div>
