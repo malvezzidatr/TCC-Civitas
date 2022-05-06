@@ -34,6 +34,8 @@ const Login = (props) => {
                 )
                 .then((response) => {
                     localStorage.setItem("token", response.data.token);
+                    localStorage.setItem("userId", response.data.userId);
+                    window.location.replace("http://localhost:3000");
                 });
         }
     }

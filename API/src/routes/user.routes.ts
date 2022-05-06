@@ -85,7 +85,9 @@ userRoutes.post(
         if (!token) {
             return res.status(500).json({ error: "Erro do servidor" });
         }
-        return res.status(200).json({ msg: "Autenticação com sucesso", token });
+        return res
+            .status(200)
+            .json({ msg: "Autenticação com sucesso", token, userId: user.id });
     }
 );
 

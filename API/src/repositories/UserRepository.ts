@@ -36,7 +36,7 @@ class UserRepository implements IUserRepository {
     }
 
     async findUserByEmail(email: string): Promise<IUser> {
-        const userExists = await User.findOne({ email }, "-password");
+        const userExists = await User.findOne({ email });
         return userExists;
     }
 
