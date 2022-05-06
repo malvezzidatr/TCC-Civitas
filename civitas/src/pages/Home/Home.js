@@ -8,21 +8,21 @@ import Welcome from '../../components/Home/Welcome/Welcome.js';
 import './Home.css';
 
 const Home = () => {
-
-  return (
-    <div>
-        <div className='home'>
-        <Header />
-        <main>
-            <Welcome />
-            <Section />
-        </main>
+    
+    return (
+        <div>
+            <div className='home'>
+            <Header />
+            <main>
+                <Welcome />
+                <Section />
+            </main>
+            </div>
+            <footer>
+                <Footer />
+            </footer>
         </div>
-        <footer>
-            <Footer />
-        </footer>
-    </div>
-  )
+    )
 }
 
 export default Home;
