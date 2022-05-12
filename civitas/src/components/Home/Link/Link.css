@@ -1,12 +1,13 @@
 .link {
-  margin-right: 3rem;
+    margin-right: 3rem;
 
-  color: #39B2A3;
+    color: #39b2a3;
 
-  font-size: 2.4rem;
-  font-weight: 700;
-  line-height: 2.4rem;
-  text-align: center;
+    font-size: 2.4rem;
+    font-weight: 700;
+    line-height: 2.4rem;
+    text-align: center;
+    text-decoration: none;
 
-  cursor: pointer;
+    cursor: pointer;
 }
