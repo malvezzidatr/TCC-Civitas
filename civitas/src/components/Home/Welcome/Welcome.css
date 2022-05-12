@@ -1,71 +1,76 @@
 .welcome {
-  width: 100%;
-  height: 69rem;
-  margin-bottom: 10rem;
+    width: 100%;
+    height: 69rem;
+    margin-bottom: 10rem;
 
-  background-image: url('../../../assets/img/home-bg.svg');
+    display: flex;
+    /* background-image: url('../../../assets/img/home-bg.svg');
   background-repeat: no-repeat;
   background-position: right;
-  background-size: contain;
+  background-size: contain; */
 }
 
 .welcome__content {
-  width: 50%;
-  height: 100%;
-  
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .welcome__title {
-  font-size: 6rem;
-  font-weight: 700;
-  color: #000000;
-  margin-bottom: 6rem;
+    font-size: 6rem;
+    font-weight: 700;
+    color: #000000;
+    margin-bottom: 6rem;
 }
 
 .welcome__title--highlight {
-  position: relative;
+    position: relative;
 }
 
 .welcome__title--highlight::before {
-  content: '';
-    
-  width: 100%;
-  height: 40%;
-  background-color: #39B2A3;
-  
-  position: absolute;
-  top: 45%;
-  
-  z-index: -1;
+    content: "";
+
+    width: 100%;
+    height: 40%;
+    background-color: #39b2a3;
+
+    position: absolute;
+    top: 45%;
+
+    z-index: -1;
 }
 
 .welcome__input-container {
-  width: 100%;
-  padding: 1.8rem 3.5rem;
-  border: 2px solid #39B2A3;
-  border-radius: 10px;
-  
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+    width: 100%;
+    padding: 1.8rem 3.5rem;
+    border: 2px solid #39b2a3;
+    border-radius: 10px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .welcome__input {
-  width: 100%;
-  margin-right: 3rem;
+    width: 100%;
+    margin-right: 3rem;
 
-  background-color: transparent;
-  outline: none;
-  
-  font-size: 2.4rem;
-  font-weight: 700;
-  color: #AEAEAE;
+    background-color: transparent;
+    outline: none;
+
+    font-size: 2.4rem;
+    font-weight: 700;
+    color: #aeaeae;
 }
 
 .welcome__input::placeholder {
-  font-size: 2.4rem;
-  color: #AEAEAE;
+    font-size: 2.4rem;
+    color: #aeaeae;
+}
+
+.welcome__image {
+    width: 100%;
 }
