@@ -1,10 +1,12 @@
-import react from 'react';
-import './SendButton.css';
+import react from "react";
+import "./SendButton.css";
 
-const SendButton = ({ textButton }) => {
+const SendButton = ({ textButton, onClick }) => {
     return (
-        <button className='sendButton'>{textButton}</button>
-    )
-}
+        <button onClick={onClick} className="sendButton">
+            {textButton}
+        </button>
+    );
+};
 
 export default SendButton;

@@ -2,9 +2,16 @@
     width: 7rem;
     height: 7rem;
     border-radius: 50%;
-    background-color: #FF8C3F;
+    background-color: #ff8c3f;
     font-size: 3.5rem;
     color: #fff;
     align-self: flex-end;
     margin: 3.5rem 5.5rem 4rem 0;
+}
+
+@media screen and (max-height: 800px) {
+    .closeButton {
+        width: 5rem;
+        height: 5rem;
+    }
 }
