@@ -1,0 +1,12 @@
+.hasProjects {
+    width: 90vw;
+    border: 1px solid #ff8c3f;
+    border-radius: 20px;
+    margin: 0 auto;
+    padding: 20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}

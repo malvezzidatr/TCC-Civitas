@@ -4,9 +4,10 @@ import "./ProjectRegister.css";
 import ProjectRegisterIMG from "../../assets/img/project-register-SVG.svg";
 
 import Input from "../../components/commum/Input/Input";
-import CloseButton from "../../components/Register/Close Button/CloseButton";
-import SendButton from "../../components/Register/Send Button/SendButton";
+import CloseButton from "../../components/Register/CloseButton/CloseButton";
+import SendButton from "../../components/Register/SendButton/SendButton";
 import SuccessModal from "../../components/Register/SuccessModal/SuccessModal";
+import TextArea from "../../components/Register/TextArea/TextArea";
 
 const ProjectRegister = ({}) => {
     const [cpf, setCpf] = useState("");
@@ -18,34 +19,19 @@ const ProjectRegister = ({}) => {
     const [password, setPassword] = useState("");
 
     return (
-        <div className="globalContainer">
+        <div className="projectContainer">
             <SuccessModal />
-            <div className="globalContainer-left">
-                <CloseButton />
-                <div className="globalContainer-left--content">
+            <div className="projectContainer-left">
+                <CloseButton
+                    className={'closeButton-left'}
+                    route={'/profile'}    
+                />
+                <div className="projectContainer-left--content">
                     <Input
-                        placeholder={"CPF"}
+                        placeholder={"Nome do projeto"}
                         type={"text"}
                         value={cpf}
                         onChange={(event) => setCpf(event.target.value)}
-                    />
-                    <Input
-                        placeholder={"Nome completo"}
-                        type={"text"}
-                        value={name}
-                        onChange={(event) => setName(event.target.value)}
-                    />
-                    <Input
-                        placeholder={"Telefone"}
-                        type={"text"}
-                        value={telephone}
-                        onChange={(event) => setTelephone(event.target.value)}
-                    />
-                    <Input
-                        placeholder={"CNPJ"}
-                        type={"text"}
-                        value={cnpj}
-                        onChange={(event) => setCnpj(event.target.value)}
                     />
                     <Input
                         placeholder={"Chave pix"}
@@ -53,22 +39,11 @@ const ProjectRegister = ({}) => {
                         value={pix}
                         onChange={(event) => setPix(event.target.value)}
                     />
-                    <Input
-                        placeholder={"E-mail"}
-                        type={"text"}
-                        value={email}
-                        onChange={(event) => setEmail(event.target.value)}
-                    />
-                    <Input
-                        placeholder={"Senha"}
-                        type={"password"}
-                        value={password}
-                        onChange={(event) => setPassword(event.target.value)}
-                    />
+                    <TextArea />
                     <SendButton textButton={"Enviar"} />
                 </div>
             </div>
-            <div className="globalContainer-right">
+            <div className="projectContainer-right">
                 <h1>Complete os campos ao lado para finalizar seu projeto</h1>
                 <img src={ProjectRegisterIMG} alt="register" />
             </div>

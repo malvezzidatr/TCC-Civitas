@@ -18,7 +18,7 @@ const Profile = () => {
                 ></img>
                 <h3 className="profile__name">Caio Vinícius Malvezzi</h3>
             </div>
-
+            
             <Button />
 
             <ProjectsSection />

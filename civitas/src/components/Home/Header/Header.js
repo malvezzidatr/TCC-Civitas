@@ -18,7 +18,7 @@ const Header = () => {
             ) : (
                 <div className="header__links">
                     <Link name={"Cadastrar"} link={"/register"} />
-                    <Button name={"Login"} link={"/login"} />
+                    <Button name={"Login"} link={"login"} />
                 </div>
             )}
         </header>
