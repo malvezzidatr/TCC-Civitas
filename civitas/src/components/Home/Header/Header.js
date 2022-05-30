@@ -13,13 +13,14 @@ const Header = () => {
     return (
         <header className="header">
             <img src={Logo} alt="Logo Civitas" className="header__logo"></img>
-
-            {/* <div className="header__links">
-                <Link name={"Cadastrar"} link={"/register"} />
-                <Button name={"Login"} link={"/login"} />
-            </div> */}
-
-            <Avatar />
+            {logged ? (
+                <Avatar />
+            ) : (
+                <div className="header__links">
+                    <Link name={"Cadastrar"} link={"/register"} />
+                    <Button name={"Login"} link={"login"} />
+                </div>
+            )}
         </header>
     );
 };

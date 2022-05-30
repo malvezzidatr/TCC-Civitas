@@ -1,22 +1,32 @@
-import React from 'react';
+import axios from 'axios';
+import React, { useState, useEffect } from 'react';
 import User from '../User/User';
 
 import './ProjectCard.css';
 
-const ProjectCard = ({ title, description }) => {
-  return (
-    <div className='project-card'>
-      <img src='https://picsum.photos/373/181' alt='' className='project-card__image'></img>
+const ProjectCard = ({ title, description, userId }) => {
+    const [user, setUser] = useState('');
+    const url = 'http://localhost:3333';
 
-      <div className='project-card__content'>
-        <h3 className='project-card__title'>{title}</h3>
+    useEffect(() => {
+        axios
+            .get(`${url}/users/${userId}`)
+            .then(response => setUser(response.data));
+    }, []);
 
-        <User name='Asdas Da' ong='Amigos do Bem' city='Mogi Mirim / SP' />
+    return (
+        <div className='project-card'>
+        <img src='https://picsum.photos/373/181' alt='' className='project-card__image'></img>
 
-        <p className='project-card__description'>{description}</p>
-      </div>
-    </div>
-  )
+        <div className='project-card__content'>
+            <h3 className='project-card__title'>{title}</h3>
+
+            <User name={user.name} />
+
+            <p className='project-card__description'>{description}</p>
+        </div>
+        </div>
+    )
 }
 
 export default ProjectCard;

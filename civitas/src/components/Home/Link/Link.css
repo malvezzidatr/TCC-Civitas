@@ -11,3 +11,7 @@
 
     cursor: pointer;
 }
+
+.link:hover {
+    border-bottom: 2px solid #39b2a3;
+}

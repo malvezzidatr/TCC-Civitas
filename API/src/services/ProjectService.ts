@@ -7,11 +7,17 @@ import { IUser } from "../model/User";
 class ProjectService {
     constructor(private projectRepository: IProjectRepository) {}
 
-    async createProject(name: string, description: string, user: IUser) {
+    async createProject(
+        name: string,
+        description: string,
+        user: IUser,
+        pix: string
+    ) {
         const project: IProject = {
             name,
             description,
             id: uuidV4(),
+            pix,
             user_id: user.id,
             created_at: new Date(),
         };

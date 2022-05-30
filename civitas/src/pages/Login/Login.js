@@ -11,6 +11,7 @@ const Login = (props) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const url = "http://localhost:3333";
+    const [error, setError] = useState(false)
 
     function login() {
         if(email && password) {
@@ -36,13 +37,16 @@ const Login = (props) => {
                     localStorage.setItem("token", response.data.token);
                     localStorage.setItem("userId", response.data.userId);
                     window.location.replace("http://localhost:3000");
-                });
+                })
+                .catch((error) => {
+                    setError(true);
+                })
         }
     }
 
     return (
         <div className='background'>
-            <img className='logo' src={Logo} alt={'Logo Civitas'} />
+            <a href='/'><img className='logo' src={Logo} alt={'Logo Civitas'} /></a>
             <div className='globalContainerLogin'>
                 <h2 className='loginTitle'>Faça seu login</h2>
                 <div className='inputContainer'>
@@ -51,13 +55,16 @@ const Login = (props) => {
                         placeholder={'Teste@teste.com'}
                         value={email}
                         onChange={event => setEmail(event.target.value)}
+                        error={error}
                     />
                     <Input
                         type={'password'}
                         placeholder={'Senha'}
                         value={password}
                         onChange={event => setPassword(event.target.value)}
+                        error={error}
                     />
+                    {error ? <p className='paragraphError'>E-mail ou senha inválida</p> : null}
                 </div>
                 <div className='buttonContainer'>
                     <Button onClick={login} text={'Login'} />

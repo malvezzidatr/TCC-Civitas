@@ -14,3 +14,7 @@
   
   cursor: pointer;
 }
+
+.header__button:hover {
+    opacity: .8;
+}

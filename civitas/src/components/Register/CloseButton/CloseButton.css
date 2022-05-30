@@ -1,0 +1,26 @@
+.closeButton-right, .closeButton-left {
+    width: 7rem;
+    height: 7rem;
+    border-radius: 50%;
+    background-color: #ff8c3f;
+    font-size: 3.5rem;
+    align-self: flex-end;
+    margin: 3.5rem 5.5rem 4rem 0;
+}
+
+.closeButton-right a, .closeButton-left a {
+    text-decoration: none;
+    color: white
+}
+
+.closeButton-left {
+    align-self: flex-start;
+    margin-left: 55px;
+}
+
+@media screen and (max-height: 800px) {
+    .closeButton-right, .closeButton-left {
+        width: 5rem;
+        height: 5rem;
+    }
+}

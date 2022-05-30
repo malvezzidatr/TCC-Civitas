@@ -12,13 +12,13 @@ const userRepository = new UserRepository();
 const userService = new UserService(userRepository);
 
 projectRoutes.patch("/:id", async (req: Request, res: Response) => {
-    const { name, description } = req.body;
+    const { name, description, pix } = req.body;
     const { id } = req.params;
     const user = await userService.findUserById(id);
     if (!user) {
         return res.status(404).json({ error: "Usuário não existe" });
     }
-    await projectService.createProject(name, description, user);
+    await projectService.createProject(name, description, user, pix);
     return res.status(201).send();
 });
 

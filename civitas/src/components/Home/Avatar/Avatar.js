@@ -5,6 +5,11 @@ import "./Avatar.css";
 import avatarPhoto from "../../../assets/img/avatar.jpg";
 
 const Avatar = () => {
+    function logout() {
+        localStorage.clear()
+        window.location.replace("http://localhost:3000");
+    }
+
     return (
         <div className="avatar">
             <img
@@ -15,8 +20,8 @@ const Avatar = () => {
             ></img>
 
             <nav className="avatar__menu">
-                <a href="#">Meus projetos</a>
-                <a href="#">Sair</a>
+                <a href="/profile">Meus projetos</a>
+                <a onClick={logout}>Sair</a>
             </nav>
         </div>
     );
