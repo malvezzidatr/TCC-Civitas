@@ -9,7 +9,7 @@ import Welcome from '../../components/Home/Welcome/Welcome.js';
 import './Home.css';
 
 const Home = () => {
-    const [projects, setProjects] = useState([]);
+
     return (
         <div>
             <div className='home'>

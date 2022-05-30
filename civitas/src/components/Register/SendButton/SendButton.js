@@ -3,7 +3,10 @@ import "./SendButton.css";
 
 const SendButton = ({ textButton, onClick }) => {
     return (
-        <button onClick={onClick} className="sendButton">
+        <button
+            onClick={onClick}
+            className="sendButton"
+        >
             {textButton}
         </button>
     );

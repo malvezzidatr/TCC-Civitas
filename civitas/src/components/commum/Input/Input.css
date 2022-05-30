@@ -1,4 +1,4 @@
-.inputLogin {
+.inputLogin, .inputError {
     border: none;
     border-bottom: 3px solid #FF8C3F;
     outline: none;
@@ -11,6 +11,15 @@
 .inputLogin::placeholder {
     font-weight: bold;
     color: #AEAEAE;
+}
+
+.inputError::placeholder {
+    font-weight: bold;
+    color: red;
+}
+
+.inputError {
+    border-bottom: 3px solid red;
 }
 
 @media(max-width: 500px) {

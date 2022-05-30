@@ -31,6 +31,7 @@
 
 .project-card__content {
     padding: 2rem;
+    text-align: start;
 }
 
 .project-card__title {

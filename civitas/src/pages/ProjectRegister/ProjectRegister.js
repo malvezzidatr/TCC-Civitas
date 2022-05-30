@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import axios from "axios";
 
 import "./ProjectRegister.css";
 import ProjectRegisterIMG from "../../assets/img/project-register-SVG.svg";
@@ -10,13 +11,37 @@ import SuccessModal from "../../components/Register/SuccessModal/SuccessModal";
 import TextArea from "../../components/Register/TextArea/TextArea";
 
 const ProjectRegister = ({}) => {
-    const [cpf, setCpf] = useState("");
     const [name, setName] = useState("");
-    const [telephone, setTelephone] = useState("");
-    const [cnpj, setCnpj] = useState("");
     const [pix, setPix] = useState("");
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
+    const [description, setDescription] = useState("");
+    const url = "http://localhost:3333";
+
+    function registerProject() {
+        const id = localStorage.getItem('userId');
+        if(name, pix, description) {
+            axios
+                .patch(
+                    `${url}/projects/${id}`,
+                    {
+                        name,
+                        pix,
+                        description
+                    },
+                    {
+                        headers: {
+                            "Access-Control-Allow-Origin": "*",
+                            "Access-Control-Allow-Methods":
+                                "GET, POST, PATCH, PUT, DELETE, OPTIONS",
+                            "Content-Type": "application/json; charset=utf-8",
+                            "Access-Control-Allow-Headers":
+                                "Origin, Content-Type, X-Auth-Token",
+                        },
+                    }
+                ).then((response) => {
+                    window.location.replace('http://localhost:3000');
+                });
+        }
+    }
 
     return (
         <div className="projectContainer">
@@ -30,8 +55,8 @@ const ProjectRegister = ({}) => {
                     <Input
                         placeholder={"Nome do projeto"}
                         type={"text"}
-                        value={cpf}
-                        onChange={(event) => setCpf(event.target.value)}
+                        value={name}
+                        onChange={(event) => setName(event.target.value)}
                     />
                     <Input
                         placeholder={"Chave pix"}
@@ -39,8 +64,12 @@ const ProjectRegister = ({}) => {
                         value={pix}
                         onChange={(event) => setPix(event.target.value)}
                     />
-                    <TextArea />
-                    <SendButton textButton={"Enviar"} />
+                    <TextArea 
+                        placeholder={"Descreva sobre projeto aqui"}
+                        value={description}
+                        onChange={(event) => setDescription(event.target.value)}
+                    />
+                    <SendButton onClick={registerProject} textButton={"Enviar"} />
                 </div>
             </div>
             <div className="projectContainer-right">

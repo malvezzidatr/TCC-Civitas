@@ -1,9 +1,14 @@
 import React from "react";
 import './TextArea.css';
 
-const TextArea = () =>{
+const TextArea = ({placeholder, value, onChange}) =>{
     return (
-        <textarea placeholder="Descreva sobre seu projeto aqui" className="textArea" />
+        <textarea
+            value={value}
+            placeholder={placeholder}
+            onChange={onChange}
+            className="textArea"
+        />
     );
 };
 

@@ -44,7 +44,7 @@ function checkJWTToken(req: Request, res: Response, next: NextFunction) {
     }
 }
 
-userRoutes.get("/:id", checkJWTToken, async (req: Request, res: Response) => {
+userRoutes.get("/:id", async (req: Request, res: Response) => {
     const { id } = req.params;
     const user = await userService.findUserById(id);
     return res.send(user);
@@ -65,15 +65,11 @@ userRoutes.delete(
     }
 );
 
-userRoutes.post(
-    "/auth/register",
-    checkJWTToken,
-    async (req: Request, res: Response) => {
-        const { name, email, password } = req.body;
-        userService.createUser({ name, email, password });
-        return res.status(201).send();
-    }
-);
+userRoutes.post("/auth/register", async (req: Request, res: Response) => {
+    const { name, email, password } = req.body;
+    userService.createUser({ name, email, password });
+    return res.status(201).send();
+});
 
 userRoutes.post(
     "/auth/login",
