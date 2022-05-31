@@ -15,17 +15,16 @@ const ProjectCard = ({ title, description, userId, pix }) => {
             .get(`${url}/users/${userId}`)
             .then(response => setUser(response.data));
     }, []);
-    
+
     return (
         <>
-            {isModalVisible ? <ModalForPix pix={pix} set={setIsModalVisible} isVisible={true} title={title} userName={user.name} description={description} /> : null}
             <div onClick={() => setIsModalVisible(true)} className='project-card'>
             <img src='https://picsum.photos/373/181' alt='' className='project-card__image'></img>
 
             <div className='project-card__content'>
                 <h3 className='project-card__title'>{title}</h3>
 
-                <User name={user.name} />
+                <User name={user.name} pix={pix} />
 
                 <p className='project-card__description'>{description}</p>
             </div>
