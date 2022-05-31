@@ -6,12 +6,29 @@ import Input from '../../components/commum/Input/Input';
 import CloseButton from '../../components/Register/CloseButton/CloseButton';
 import SendButton from '../../components/Register/SendButton/SendButton';
 import SuccessModal from '../../components/Register/SuccessModal/SuccessModal';
+import SuccessSVG from '../../assets/img/Success.svg';
 
 const Register = ({ }) => {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [isModalVisible, setIsModalVisible] = useState(false);
     const url = "http://localhost:3333";
+
+    function Modal() {
+        return (
+            <div className='registerUserModal'>
+                <div className='container'>
+                    <img src={SuccessSVG} alt="Successo"/>
+                    <div>
+                        <h1>Tudo certo!</h1>
+                        <p>Usuário cadastrado com successo.</p>
+                    </div>
+                    <button onClick={() => window.location.replace("http://localhost:3000/login")}>Voltar para tela de login</button>
+                </div>
+            </div>
+        )
+    }
 
     function userRegister() {
         if(email && password && name) {
@@ -35,8 +52,8 @@ const Register = ({ }) => {
                         },
                     }
                 )
-                .then((response) => {
-                    window.location.replace("http://localhost:3000/login");
+                .then(() => {
+                    setIsModalVisible(true);
                 })
                 .catch((error) => {
                     console.error(error)
@@ -46,6 +63,7 @@ const Register = ({ }) => {
 
     return (
         <div className='globalContainer'>
+            { isModalVisible ? <Modal /> : null}
             <SuccessModal />
             <div className='globalContainer-left'>
                 <h1>Complete os campos para finalizar seu cadastro</h1>

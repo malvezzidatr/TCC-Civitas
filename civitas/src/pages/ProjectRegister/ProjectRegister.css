@@ -37,6 +37,66 @@
     width: 55rem;
 }
 
+.registerProjectModal {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, .3);
+    width: 100vw;
+    height: 100vh;
+}
+
+.registerProjectModal .container {
+    width: 500px;
+    height: 450px;
+    background-color: #fff;
+    border-radius: 20px;
+    border: 2px solid #FF8C3F;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.registerProjectModal .container div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.registerProjectModal .container div h1{
+    font-size: 3.5rem;
+}
+
+.registerProjectModal .container div p {
+    font-size: 1.6rem;
+    color: #aeaeae;
+}
+
+.registerProjectModal .container button {
+    width: 240px;
+    height: 60px;
+    background-color: #FF8C3F;
+    color: white;
+    border-radius: 20px;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.registerProjectModal .container button:hover {
+    opacity: .9;
+}
+
+@media (max-width: 960px) {
+    .registerProjectModal .container {
+        width: 100vw;
+        height: 100vh;
+        border: none;
+        border-radius: unset;
+    }
+}
+
 @media (max-width: 1100px) {
     .projectContainer-right {
         display: none;

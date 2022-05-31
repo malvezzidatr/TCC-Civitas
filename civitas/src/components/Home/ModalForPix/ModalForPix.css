@@ -1,0 +1,67 @@
+.modalForPix {
+    position: absolute;
+    width: 62%;
+    height: 80%;
+    border-radius: 50px;
+    background-color: #fff;
+    display: none;
+    flex-direction: column;
+    border: 2px solid #ff8c3f;
+}
+
+.image {
+    width: 100%;
+    height: 50%;
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+    border-bottom: 2px solid #ff8c3f;
+}
+
+.closeButtonModal {
+    width: 7rem;
+    height: 7rem;
+    border-radius: 50%;
+    background-color: #ff8c3f;
+    font-size: 3.5rem;
+    align-self: flex-end;
+    margin: 3.5rem 5.5rem 4rem 0;
+    cursor: pointer;
+    color: #fff;
+}
+
+.content {
+    width: 600px;
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+    margin-left: 120px;
+}
+
+.content h2 {
+    font-size: 4rem;
+    margin-bottom: 30px;
+    margin-top: 10px;
+}
+
+.content .user {
+    display: flex;
+    align-items: center;
+}
+
+.content .user img {
+    width: 120px;
+    height: 120px;
+    border-radius: 500px;
+}
+
+.content .user p {
+    margin: 10px 10px;
+    font-size: 18px;
+}
+
+.content p {
+    font-size: 1.6rem;
+}
