@@ -9,12 +9,29 @@ import CloseButton from "../../components/Register/CloseButton/CloseButton";
 import SendButton from "../../components/Register/SendButton/SendButton";
 import SuccessModal from "../../components/Register/SuccessModal/SuccessModal";
 import TextArea from "../../components/Register/TextArea/TextArea";
+import SuccessSVG from '../../assets/img/Success.svg';
 
 const ProjectRegister = ({}) => {
     const [name, setName] = useState("");
     const [pix, setPix] = useState("");
     const [description, setDescription] = useState("");
+    const [isModalVisible, setIsModalVisible] = useState(false);
     const url = "http://localhost:3333";
+
+    function Modal() {
+        return (
+            <div className='registerProjectModal'>
+                <div className='container'>
+                    <img src={SuccessSVG} alt="Successo"/>
+                    <div>
+                        <h1>Tudo certo!</h1>
+                        <p>Projeto cadastrado com successo.</p>
+                    </div>
+                    <button onClick={() => window.location.replace("http://localhost:3000")}>Voltar para o início</button>
+                </div>
+            </div>
+        )
+    }
 
     function registerProject() {
         const id = localStorage.getItem('userId');
@@ -38,7 +55,7 @@ const ProjectRegister = ({}) => {
                         },
                     }
                 ).then((response) => {
-                    window.location.replace('http://localhost:3000');
+                    setIsModalVisible(true);
                 });
         }
     }
@@ -46,6 +63,7 @@ const ProjectRegister = ({}) => {
     return (
         <div className="projectContainer">
             <SuccessModal />
+            { isModalVisible ? <Modal /> : null}
             <div className="projectContainer-left">
                 <CloseButton
                     className={'closeButton-left'}

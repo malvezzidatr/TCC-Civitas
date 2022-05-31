@@ -3,8 +3,9 @@ import axios from 'axios';
 import ProjectCard from '../ProjectCard/ProjectCard';
 
 import './Section.css'
+import ModalForPix from '../ModalForPix/ModalForPix';
 
-const Section = ({ }) => {
+const Section = () => {
     const [projects, setProjects] = useState([]);
     const url = 'http://localhost:3333';
     
@@ -16,19 +17,18 @@ const Section = ({ }) => {
             });
     }, []);
 
-  return (
-    <section className='section'>
-      <h2 className='section__title'><strong className='section__title--highlight'>Projetos</strong> em destaque</h2>
-
-      <div className='section__grid'>
-        {projects.map((item, index) => {
-            return (
-                <ProjectCard key={index} title={item.name} description={item.description} userId={item.user_id} />
-            )
-        })}
-      </div>
-    </section>
-  )
+    return (
+        <section className='section'>
+            <h2 className='section__title'><strong className='section__title--highlight'>Projetos</strong> em destaque</h2>
+            <div className='section__grid'>
+                {projects.map((item, index) => {
+                    return (
+                        <ProjectCard pix={item.pix} key={index} title={item.name} description={item.description} userId={item.user_id} />
+                    )
+                })}
+            </div>
+        </section>
+    )
 }
 
 export default Section;
