@@ -1,0 +1,15 @@
+.arrow {
+    width: 70px;
+    height: 70px;
+    border-radius: 50px;
+    font-size: 52px;
+    background-color: white;
+    color: #ff8c3f;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    left: 40px;
+    top: 40px;
+    text-decoration: none;
+}

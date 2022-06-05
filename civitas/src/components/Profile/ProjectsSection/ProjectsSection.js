@@ -10,9 +10,9 @@ const ProjectsSection = ({ projects, userId }) => {
             <h2 className="projects-section__title">Meus projetos</h2>
             
             { projects?.length ?  
-            <HasProjects projects={projects} userId={userId} />
-            :
-            <NoProjects />
+                <HasProjects projects={projects} userId={userId} />
+                :
+                <NoProjects />
             }
         </section>
     );

@@ -2,14 +2,14 @@
 import React from "react";
 import './App.css';
 
-import Routes from "./routes.js";
+import Router from "./routes.js";
 
 
 function App() {
     // eslint-disable-next-line no-undef
     return (
         <div className="App">
-            <Routes />
+            <Router />
         </div>
     );
 }

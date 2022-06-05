@@ -1,9 +1,10 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 import "./Button.css";
 
 const Button = () => {
-    return <a className="profile__button" href="/project-register">Novo projeto</a>;
+    return <Link className="profile__button" to={"/project-register"}>Novo projeto</Link>;
 };
 
 export default Button;

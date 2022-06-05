@@ -15,7 +15,7 @@
 }
 
 .section__grid {
-  display: grid;
-  grid-template-columns: auto auto auto;
-  gap: auto auto;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
 }

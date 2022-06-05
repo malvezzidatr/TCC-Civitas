@@ -3,7 +3,7 @@ import './SuccessModal.css';
 import successIMG from '../../../assets/img/Success.svg';
 import ModalButton from '../ModalButton/ModalButton';
 
-const SuccessModal = ({}) => {
+const SuccessModal = () => {
     return (
         <div className='modalContainer'>
             <img src={successIMG} alt='success' />

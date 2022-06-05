@@ -7,13 +7,31 @@ import CloseButton from '../../components/Register/CloseButton/CloseButton';
 import SendButton from '../../components/Register/SendButton/SendButton';
 import SuccessModal from '../../components/Register/SuccessModal/SuccessModal';
 import SuccessSVG from '../../assets/img/Success.svg';
+import ErrorSVG from '../../assets/img/Error.svg';
+import { Link } from 'react-router-dom';
 
 const Register = ({ }) => {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [isModalVisible, setIsModalVisible] = useState(false);
+    const [isModalErrorVisible, setIsModalErrorVisible] = useState(false);
+    const [isLoading, setIsLoading] = useState(false);
     const url = "http://localhost:3333";
+
+    function Loader() {
+        return (
+            <div className="loader-container">
+                <div class="loader">
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                </div>
+            </div>
+        )
+    }
 
     function Modal() {
         return (
@@ -24,7 +42,22 @@ const Register = ({ }) => {
                         <h1>Tudo certo!</h1>
                         <p>Usuário cadastrado com successo.</p>
                     </div>
-                    <button onClick={() => window.location.replace("http://localhost:3000/login")}>Voltar para tela de login</button>
+                    <Link className='goToLogin' to={"/login"}>Voltar para tela de login</Link>
+                </div>
+            </div>
+        )
+    }
+
+    function ErrorModal() {
+        return (
+            <div className='registerUserModal'>
+                <div className='container'>
+                    <img src={ErrorSVG} alt="Error"/>
+                    <div>
+                        <h1>Algo deu Errado</h1>
+                        <p>Infelizmente ocorreu um erro</p>
+                    </div>
+                    <button className='goToLogin' onClick={() => setIsModalErrorVisible(false) }>Tentar novamente</button>
                 </div>
             </div>
         )
@@ -32,7 +65,7 @@ const Register = ({ }) => {
 
     function userRegister() {
         if(email && password && name) {
-
+            setIsLoading(true);
             axios
                 .post(
                     `${url}/users/auth/register/`,
@@ -53,18 +86,21 @@ const Register = ({ }) => {
                     }
                 )
                 .then(() => {
+                    setIsLoading(false);
                     setIsModalVisible(true);
                 })
                 .catch((error) => {
-                    console.error(error)
+                    setIsLoading(false);
+                    setIsModalErrorVisible(true);
                 })
         }
     }
 
     return (
         <div className='globalContainer'>
-            { isModalVisible ? <Modal /> : null}
-            <SuccessModal />
+            { isModalVisible ? <Modal /> : null }
+            { isModalErrorVisible ? <ErrorModal /> : null }
+            { isLoading ? <Loader /> : null}
             <div className='globalContainer-left'>
                 <h1>Complete os campos para finalizar seu cadastro</h1>
                 <img src={registerIMG} alt="register" />

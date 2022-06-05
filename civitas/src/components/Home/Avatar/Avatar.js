@@ -3,6 +3,7 @@ import React from "react";
 import "./Avatar.css";
 
 import avatarPhoto from "../../../assets/img/avatar.jpg";
+import { Link } from "react-router-dom";
 
 const Avatar = () => {
     function logout() {
@@ -20,8 +21,8 @@ const Avatar = () => {
             ></img>
 
             <nav className="avatar__menu">
-                <a href="/profile">Meus projetos</a>
-                <a onClick={logout}>Sair</a>
+                <Link to={"/profile"}>Meus projetos</Link>
+                <Link to={"/"} onClick={logout}>Sair</Link>
             </nav>
         </div>
     );

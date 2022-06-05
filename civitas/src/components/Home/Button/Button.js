@@ -1,13 +1,14 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import './Button.css'
 
 const Button = ({ name, link }) => {
   
   return (
-    <a href={link} className='header__button'>
-      {name}
-    </a>
+    <Link to={link} className='header__button'>
+        {name}
+    </Link>
   )
 }
 
