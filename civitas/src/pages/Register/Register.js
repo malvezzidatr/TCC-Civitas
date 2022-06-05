@@ -13,6 +13,7 @@ const Register = ({ }) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [isModalVisible, setIsModalVisible] = useState(false);
+    const [isModalErrorVisible, setIsModalErrorVisible] = useState(false);
     const url = "http://localhost:3333";
 
     function Modal() {
@@ -56,7 +57,7 @@ const Register = ({ }) => {
                     setIsModalVisible(true);
                 })
                 .catch((error) => {
-                    console.error(error)
+                    setIsModalErrorVisible(true);
                 })
         }
     }

@@ -11,7 +11,7 @@ import SuccessModal from "../../components/Register/SuccessModal/SuccessModal";
 import TextArea from "../../components/Register/TextArea/TextArea";
 import SuccessSVG from '../../assets/img/Success.svg';
 
-const ProjectRegister = ({}) => {
+const ProjectRegister = () => {
     const [name, setName] = useState("");
     const [pix, setPix] = useState("");
     const [description, setDescription] = useState("");

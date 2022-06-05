@@ -3,7 +3,6 @@ import axios from 'axios';
 import ProjectCard from '../ProjectCard/ProjectCard';
 
 import './Section.css'
-import ModalForPix from '../ModalForPix/ModalForPix';
 
 const Section = () => {
     const [projects, setProjects] = useState([]);
