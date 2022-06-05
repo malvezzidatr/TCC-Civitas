@@ -16,7 +16,22 @@ const Register = ({ }) => {
     const [password, setPassword] = useState('');
     const [isModalVisible, setIsModalVisible] = useState(false);
     const [isModalErrorVisible, setIsModalErrorVisible] = useState(false);
+    const [isLoading, setIsLoading] = useState(false);
     const url = "http://localhost:3333";
+
+    function Loader() {
+        return (
+            <div className="loader-container">
+                <div class="loader">
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                </div>
+            </div>
+        )
+    }
 
     function Modal() {
         return (
@@ -50,7 +65,7 @@ const Register = ({ }) => {
 
     function userRegister() {
         if(email && password && name) {
-
+            setIsLoading(true);
             axios
                 .post(
                     `${url}/users/auth/register/`,
@@ -71,9 +86,11 @@ const Register = ({ }) => {
                     }
                 )
                 .then(() => {
+                    setIsLoading(false);
                     setIsModalVisible(true);
                 })
                 .catch((error) => {
+                    setIsLoading(false);
                     setIsModalErrorVisible(true);
                 })
         }
@@ -83,7 +100,7 @@ const Register = ({ }) => {
         <div className='globalContainer'>
             { isModalVisible ? <Modal /> : null }
             { isModalErrorVisible ? <ErrorModal /> : null }
-            <SuccessModal />
+            { isLoading ? <Loader /> : null}
             <div className='globalContainer-left'>
                 <h1>Complete os campos para finalizar seu cadastro</h1>
                 <img src={registerIMG} alt="register" />

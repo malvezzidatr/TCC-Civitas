@@ -19,7 +19,22 @@ const ProjectRegister = () => {
     const [description, setDescription] = useState("");
     const [isModalVisible, setIsModalVisible] = useState(false);
     const [isModalErrorVisible, setIsModalErrorVisible] = useState(false);
+    const [isLoading, setIsLoading] = useState(false);
     const url = "http://localhost:3333";
+
+    function Loader() {
+        return (
+            <div className="loader-container">
+                <div class="loader">
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                </div>
+            </div>
+        )
+    }
 
     function Modal() {
         return (
@@ -54,6 +69,7 @@ const ProjectRegister = () => {
     function registerProject() {
         const id = localStorage.getItem('userId');
         if(name, pix, description) {
+            setIsLoading(true);
             axios
                 .patch(
                     `${url}/projects/${id}`,
@@ -73,9 +89,11 @@ const ProjectRegister = () => {
                         },
                     }
                 ).then((response) => {
+                    setIsLoading(false);
                     setIsModalVisible(true);
                 })
                 .catch(() => {
+                    setIsLoading(false);
                     setIsModalErrorVisible(true);
                 });
         }
@@ -83,9 +101,9 @@ const ProjectRegister = () => {
 
     return (
         <div className="projectContainer">
-            <SuccessModal />
             { isModalVisible ? <Modal /> : null}
             { isModalErrorVisible ? <ErrorModal /> : null}
+            { isLoading ? <Loader /> : null}
             <div className="projectContainer-left">
                 <CloseButton
                     className={'closeButton-left'}
