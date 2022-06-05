@@ -6,8 +6,9 @@ import Input from '../../components/commum/Input/Input.js';
 import Logo from '../../assets/img/logo-branco.svg'
 
 import './Login.css';
+import { Link } from 'react-router-dom';
 
-const Login = (props) => {
+const Login = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const url = "http://localhost:3333";
@@ -46,7 +47,7 @@ const Login = (props) => {
 
     return (
         <div className='background'>
-            <a href='/'><img className='logo' src={Logo} alt={'Logo Civitas'} /></a>
+            <Link to={'/'}><img className='logo' src={Logo} alt={'Logo Civitas'} /></Link>
             <div className='globalContainerLogin'>
                 <h2 className='loginTitle'>Faça seu login</h2>
                 <div className='inputContainer'>
@@ -68,7 +69,7 @@ const Login = (props) => {
                 </div>
                 <div className='buttonContainer'>
                     <Button onClick={login} text={'Login'} />
-                    <a href='/register'>Ainda não tenho conta</a>
+                    <Link to={'/register'}>Ainda não tenho conta</Link>
                 </div>
             </div>
         </div>

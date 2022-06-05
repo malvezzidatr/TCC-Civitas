@@ -4,7 +4,7 @@ import facebookIcon from '../../../assets/img/facebook.png'
 import githubIcon from '../../../assets/img/github.png'
 import linkedinIcon from '../../../assets/img/linkedin.png'
 
-const Footer = ({}) => {
+const Footer = () => {
     return (
         <div className='footerContainer'>
             <h1>Civitas</h1>

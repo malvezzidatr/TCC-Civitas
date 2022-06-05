@@ -6,6 +6,7 @@ import profilePhoto from "../../assets/img/profile.jpg";
 import Button from "../../components/Profile/Button/Button.js";
 import ProjectsSection from "../../components/Profile/ProjectsSection/ProjectsSection";
 import axios from "axios";
+import ArrowBack from "../../components/Profile/ArrowBack/ArrowBack";
 
 const Profile = () => {
     const [user, setUser] = useState('');
@@ -21,7 +22,9 @@ const Profile = () => {
     return (
         <div className="profile">
             <div className="profile__header">
-                <div className="profile__background"></div>
+                <div className="profile__background">
+                    <ArrowBack route={'/'} />
+                </div>
                 <img
                     src={profilePhoto}
                     alt="Foto de perfil"

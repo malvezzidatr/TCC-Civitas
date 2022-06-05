@@ -1,13 +1,14 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 import "./Link.css";
 
-const Link = ({ name, link }) => {
+const Links = ({ name, link }) => {
     return (
-        <a href={link} className="link">
+        <Link to={link} className="link">
             {name}
-        </a>
+        </Link>
     );
 };
 
-export default Link;
+export default Links;

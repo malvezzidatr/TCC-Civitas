@@ -1,12 +1,13 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './CloseButton.css';
 
 const CloseButton = ({ route, className }) => {
     return (
         <button className={className}>
-            <a href={route}>
+            <Link to={route}>
                 X
-            </a>
+            </Link>
         </button>
     )
 }
