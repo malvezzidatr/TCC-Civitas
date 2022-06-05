@@ -28,7 +28,7 @@ const Section = () => {
                         )
                     })
                     :
-                    <NoProjects />
+                    <NoProjects text={"Ainda não existe projetos cadastrados"} />
                 }
             </div>
         </section>
