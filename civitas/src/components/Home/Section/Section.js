@@ -3,6 +3,7 @@ import axios from 'axios';
 import ProjectCard from '../ProjectCard/ProjectCard';
 
 import './Section.css'
+import NoProjects from '../../Profile/NoProjects/NoProjects';
 
 const Section = () => {
     const [projects, setProjects] = useState([]);
@@ -20,11 +21,15 @@ const Section = () => {
         <section className='section'>
             <h2 className='section__title'><strong className='section__title--highlight'>Projetos</strong> em destaque</h2>
             <div className='section__grid'>
-                {projects.map((item, index) => {
-                    return (
-                        <ProjectCard pix={item.pix} key={index} title={item.name} description={item.description} userId={item.user_id} />
-                    )
-                })}
+                { projects?.length ?
+                    projects.map((item, index) => {
+                        return (
+                            <ProjectCard pix={item.pix} key={index} title={item.name} description={item.description} userId={item.user_id} />
+                        )
+                    })
+                    :
+                    <NoProjects />
+                }
             </div>
         </section>
     )

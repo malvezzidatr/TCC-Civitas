@@ -10,12 +10,15 @@ import SendButton from "../../components/Register/SendButton/SendButton";
 import SuccessModal from "../../components/Register/SuccessModal/SuccessModal";
 import TextArea from "../../components/Register/TextArea/TextArea";
 import SuccessSVG from '../../assets/img/Success.svg';
+import ErrorSVG from '../../assets/img/Error.svg';
+import { Link } from "react-router-dom";
 
 const ProjectRegister = () => {
     const [name, setName] = useState("");
     const [pix, setPix] = useState("");
     const [description, setDescription] = useState("");
     const [isModalVisible, setIsModalVisible] = useState(false);
+    const [isModalErrorVisible, setIsModalErrorVisible] = useState(false);
     const url = "http://localhost:3333";
 
     function Modal() {
@@ -27,7 +30,22 @@ const ProjectRegister = () => {
                         <h1>Tudo certo!</h1>
                         <p>Projeto cadastrado com successo.</p>
                     </div>
-                    <button onClick={() => window.location.replace("http://localhost:3000")}>Voltar para o início</button>
+                    <Link className="goToHome" to={"/"}>Voltar para o início</Link>
+                </div>
+            </div>
+        )
+    }
+
+    function ErrorModal() {
+        return (
+            <div className='registerProjectModal'>
+                <div className='container'>
+                    <img src={ErrorSVG} alt="Error"/>
+                    <div>
+                        <h1>Algo deu Errado</h1>
+                        <p>Infelizmente ocorreu um erro</p>
+                    </div>
+                    <button className='goToHome' onClick={() => setIsModalErrorVisible(false) }>Tentar novamente</button>
                 </div>
             </div>
         )
@@ -56,6 +74,9 @@ const ProjectRegister = () => {
                     }
                 ).then((response) => {
                     setIsModalVisible(true);
+                })
+                .catch(() => {
+                    setIsModalErrorVisible(true);
                 });
         }
     }
@@ -64,6 +85,7 @@ const ProjectRegister = () => {
         <div className="projectContainer">
             <SuccessModal />
             { isModalVisible ? <Modal /> : null}
+            { isModalErrorVisible ? <ErrorModal /> : null}
             <div className="projectContainer-left">
                 <CloseButton
                     className={'closeButton-left'}

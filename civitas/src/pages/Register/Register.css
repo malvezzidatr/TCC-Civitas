@@ -73,7 +73,7 @@
     color: #aeaeae;
 }
 
-.registerUserModal .container button {
+.registerUserModal .container .goToLogin {
     width: 240px;
     height: 60px;
     background-color: #FF8C3F;
@@ -81,6 +81,10 @@
     border-radius: 20px;
     font-size: 1.5rem;
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
 }
 
 .registerUserModal .container button:hover {
