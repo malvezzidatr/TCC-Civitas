@@ -12,7 +12,7 @@ const ProjectsSection = ({ projects, userId }) => {
             { projects?.length ?  
                 <HasProjects projects={projects} userId={userId} />
                 :
-                <NoProjects />
+                <NoProjects text={"Você ainda não tem projetos cadastrados"} />
             }
         </section>
     );
